@@ -3,7 +3,7 @@ const path = require("path");
 const cors = require("cors");
 const fs = require("fs");
 
-const https = require("https");
+const http = require("http");
 
 const app = express();
 
@@ -16,15 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   console.log(`fire detection Server is running on port 3000`)
 // );
 
-const httpsServer = https.createServer(
-    {
-      key: fs.readFileSync(path.resolve(__dirname,'./ssl/privkey.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname,'./ssl/fullchain.pem'))
-    },
+const httpServer = https.createServer(
     app
   );
 
 
-  httpsServer.listen(443, () => {
+  httpServer.listen(443, () => {
     console.log("HTTPS Server running on port 443");
   });
