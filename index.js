@@ -16,11 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   console.log(`fire detection Server is running on port 3000`)
 // );
 
-const httpServer = https.createServer(
+const httpServer = http.createServer(
     app
   );
 
 
-  httpServer.listen(443, () => {
+  httpServer.listen(80, () => {
     console.log("HTTPS Server running on port 443");
   });
